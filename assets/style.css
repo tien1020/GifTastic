@@ -21,10 +21,10 @@ button, #add-animal {
     text-align: center;
 }
 
-.animalGifs {
+.img {
 padding: 10px;
-  width: 100%;
   position: relative; 
+  
   float: left;
   clear: both;
 display: block;
