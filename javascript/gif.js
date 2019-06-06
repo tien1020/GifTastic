@@ -11,22 +11,23 @@ function displayAnimal(){
         for (var i=0; i < 10; i++) {
             var imagesStill = response.data[i].images.downsized_still.url;
             var imagesAnimate = response.data[i].images.downsized.url;
-            // var animateGiphy = $("<img>").attr("src", animalGif);
             var image = $("<img>");
             image.attr("src",imagesStill);
             image.attr("data-state","still");
             image.attr("data-animate",imagesAnimate);
             image.attr("data-still",imagesStill);
             image.addClass("gif");
-            $("#animalGifs").append(image) ;
+            $("#animalGifs").prepend(image) ;
+            var rating = response.data[i].rating;
+        var ratingShow = $("<p>").text("Rating: " + rating);
+        $("#animalGifs").prepend(ratingShow) ;
+        
+
             
         }
         
 
-        var animalDiv = $("<div class=gifAnimal>");
-        var rating = response.data.rating;
-        var ratingShow = $("<p>").text("Rating: " + rating);
-        animalDiv.append(ratingShow);
+        
     })
 }
         
@@ -51,13 +52,11 @@ function animalButtons () {
         var animal = $("#animal-input").val().trim();
         animals.push(animal);
         animalButtons();
-    })
+    });
 
     $(document).on("click", ".animal-btn", displayAnimal);
     animalButtons();
 
-
-   
         $(document).on("click", ".gif", function() {
                     var state = $(this).attr("data-state");
         if (state === "still") {
@@ -68,4 +67,6 @@ function animalButtons () {
             $(this).attr("data-state", "still");
           }
         });
+
+    
       

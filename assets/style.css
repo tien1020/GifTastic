@@ -1,0 +1,23 @@
+button, #add-animal {
+    background-color: #4aaaa5;
+    color: white;
+    margin: 10px;
+    border-radius: 8px;
+}
+
+#button-views{
+    text-align: center;
+}
+
+#animalGifs {
+    
+  white-space: nowrap;
+  width: 100%;
+  display: table;
+  position: relative;
+  float: left;
+}
+
+h6 {
+    font-weight: bold;
+}
