@@ -17,10 +17,14 @@ function displayAnimal(){
             image.attr("data-animate",imagesAnimate);
             image.attr("data-still",imagesStill);
             image.addClass("gif");
-            $("#animalGifs").prepend(image) ;
+            $(".animalGifs").append(image) ;
             var rating = response.data[i].rating;
         var ratingShow = $("<p>").text("Rating: " + rating);
-        $("#animalGifs").prepend(ratingShow) ;
+        $(".animalGifs").append(ratingShow) ;
+        // animalDiv.append(ratingShow);
+        // animalDiv.append(image);
+        // $(".animalGifs").prepend(animalDiv);
+
         
 
             
