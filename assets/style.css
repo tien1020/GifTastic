@@ -21,15 +21,17 @@ button, #add-animal {
     text-align: center;
 }
 
-.img {
+.animalDiv {
 padding: 10px;
   position: relative; 
-  
+  height: 200px;
   float: left;
-  clear: both;
 display: block;
 z-index: 999;
 
+}
+.animalDiv img {
+    height: 90%;
 }
 
 

@@ -8,10 +8,10 @@ function displayAnimal(){
         method: "GET"
     }).then(function(response){
         console.log(response);
-        var animalDiv = $("<div class='animalDiv '>");
-        $("#animalShow").prepend(animalDiv);
+        $("#animalShow").empty();
         for (var i=0; i < 10; i++) {
-           
+            var animalDiv = $("<div class='animalDiv'>");
+            // $("#animalShow").prepend(animalDiv);
             var imagesStill = response.data[i].images.downsized_still.url;
             var imagesAnimate = response.data[i].images.downsized.url;
             // var imageDiv = $("<div class='col-md-4'>");
@@ -22,11 +22,12 @@ function displayAnimal(){
             image.attr("data-animate",imagesAnimate);
             image.attr("data-still",imagesStill);
             image.addClass("gif");
-            $(".animalDiv").append(image) ;
+            animalDiv.append(image) ;
 
             var rating = response.data[i].rating;
         var ratingShow = $("<p>").text("Rating: " + rating);
-        $(".animalDiv").append(ratingShow) ;
+        animalDiv.append(ratingShow) ;
+        $("#animalShow").prepend(animalDiv);
        
 
         
@@ -61,8 +62,11 @@ function animalButtons () {
       
 
         var animal = $("#animal-input").val().trim();
-        animals.push(animal);
+        if (animal!= ""){
+            animals.push(animal);
         animalButtons();
+        }
+        
     });
 
     $(document).on("click", ".animal-btn", displayAnimal);
